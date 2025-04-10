@@ -2,8 +2,9 @@ import discord
 from discord.ext import commands
 import os
 
-token = "MTM0NjU1MTMzNzE0NzY5NTIzNg.GPbujK.WcEh2xjWPepiZfcmKdbO16aOUOanypzNWSOyyo"
-
+# Do NOT hardcode your token here!
+# It'll be pulled from Railway's environment variables.
+token = os.getenv("TOKEN")
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -18,4 +19,4 @@ async def on_ready():
 async def ping(ctx):
     await ctx.send("Pong!")
 
-bot.run(os.getenv(token))
+bot.run(token)
